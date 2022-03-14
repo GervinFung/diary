@@ -14,13 +14,19 @@ class CreateJournalTable extends Migration
     public function up()
     {
         Schema::create("journal", function (Blueprint $table) {
+            $table->id();
             $table
-                ->integer("user")
+                ->foreignId("user")
+                ->constrained("user")
                 ->nullable(false)
-                ->reference("user")
-                ->on("user");
+                ->onDelete("cascade");
             $table->integer("year")->nullable(false);
             $table->string("title")->nullable(false);
+            $table->timestamp("created_at")->useCurrent();
+            $table
+                ->timestamp("updated_at")
+                ->nullable(true)
+                ->useCurrentOnUpdate();
         });
     }
 
