@@ -25,6 +25,7 @@ class CreatePersonalAccessTokensTable extends Migration
                 ->timestamp("updated_at")
                 ->nullable(true)
                 ->useCurrentOnUpdate();
+
         });
     }
 
