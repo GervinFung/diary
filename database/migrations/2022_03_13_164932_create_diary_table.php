@@ -1,10 +1,9 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserTable extends Migration
+class CreateDiaryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +12,14 @@ class CreateUserTable extends Migration
      */
     public function up()
     {
-        Schema::create("user", function (Blueprint $table) {
+        Schema::create("diary", function (Blueprint $table) {
             $table->id();
-            $table->string("name")->nullable(false);
             $table
-                ->string("email")
+                ->foreignId("journal")
+                ->constrained("journal")
                 ->nullable(false)
-                ->unique();
-            $table->timestamp("email_verified_at")->nullable(true);
-            $table->string("password")->nullable(false);
-            $table->rememberToken();
+                ->onDelete("cascade");
+            $table->text("content")->nullable(true);
             $table->timestamp("created_at")->useCurrent();
             $table
                 ->timestamp("updated_at")
@@ -38,6 +35,6 @@ class CreateUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("user");
+        Schema::dropIfExists("diary");
     }
 }
