@@ -16,3 +16,9 @@ migrate:
 
 rollback:
 	${php} migrate:rollback
+
+## controller
+# https://blog.shahednasser.com/implementing-rbac-in-laravel-tutorial/
+controller:
+	@read -p "What is your controller name: " CONTROLLER\
+		&& ${php} make:controller "$${CONTROLLER}"
