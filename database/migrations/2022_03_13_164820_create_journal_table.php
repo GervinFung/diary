@@ -16,7 +16,7 @@ class CreateJournalTable extends Migration
         Schema::create("journal", function (Blueprint $table) {
             $table->id();
             $table
-                ->foreignId("user")
+                ->foreignId("user_id")
                 ->constrained("user")
                 ->nullable(false)
                 ->onDelete("cascade");

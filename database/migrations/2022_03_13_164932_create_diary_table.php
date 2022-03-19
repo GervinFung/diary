@@ -15,7 +15,7 @@ class CreateDiaryTable extends Migration
         Schema::create("diary", function (Blueprint $table) {
             $table->id();
             $table
-                ->foreignId("journal")
+                ->foreignId("journal_id")
                 ->constrained("journal")
                 ->nullable(false)
                 ->onDelete("cascade");
