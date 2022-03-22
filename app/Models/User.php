@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // LSW - START
+    public $table = "user";
+    // LSW - END
+
     /**
      * The attributes that are mass assignable.
      *
