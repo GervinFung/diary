@@ -1,3 +1,7 @@
+## setup
+install:
+	yarn && composer install
+
 php=php artisan
 ## start
 start:
@@ -18,7 +22,10 @@ rollback:
 	${php} migrate:rollback
 
 ## controller
-# https://blog.shahednasser.com/implementing-rbac-in-laravel-tutorial/
 controller:
 	@read -p "What is your controller name: " CONTROLLER\
 		&& ${php} make:controller "$${CONTROLLER}"
+## model
+model:
+	@read -p "What is your model name: " MODEL\
+		&& ${php} make:model "$${MODEL}"
