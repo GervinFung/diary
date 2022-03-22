@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\JournalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// LSW - START
+Route::get('/journals',[JournalController::class,'getJournals']);
+Route::get('/journal/{id}',[JournalController::class,'getJournal']);
+Route::get('/diary/{id}',[DiaryController::class,'getDiary']);
+// LSW - END
