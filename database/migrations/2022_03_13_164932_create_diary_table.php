@@ -12,6 +12,7 @@ class CreateDiaryTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists("diary");
         Schema::create("diary", function (Blueprint $table) {
             $table->id();
             $table
@@ -19,6 +20,7 @@ class CreateDiaryTable extends Migration
                 ->constrained("journal")
                 ->nullable(false)
                 ->onDelete("cascade");
+            $table->date('date')->nullable(false);
             $table->text("content")->nullable(true);
             $table->timestamp("created_at")->useCurrent();
             $table

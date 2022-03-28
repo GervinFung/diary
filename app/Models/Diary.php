@@ -18,5 +18,4 @@ class Diary extends Model
         $this->belongsTo(Journal::class);
     }
     // LSW - END
-
 }
