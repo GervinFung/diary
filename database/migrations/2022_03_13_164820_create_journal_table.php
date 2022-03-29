@@ -13,6 +13,7 @@ class CreateJournalTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists("journal");
         Schema::create("journal", function (Blueprint $table) {
             $table->id();
             $table

@@ -13,6 +13,7 @@ class CreateUserTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists("user");
         Schema::create("user", function (Blueprint $table) {
             $table->id();
             $table->string("name")->nullable(false);
@@ -23,6 +24,7 @@ class CreateUserTable extends Migration
             $table->timestamp("email_verified_at")->nullable(true);
             $table->string("password")->nullable(false);
             $table->rememberToken();
+            $table->enum('type', ['Public', 'Private']);
             $table->timestamp("created_at")->useCurrent();
             $table
                 ->timestamp("updated_at")
