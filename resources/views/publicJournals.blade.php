@@ -12,6 +12,7 @@
         <link href="{{ URL::asset('css/header.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('css/footer.css') }}" rel="stylesheet">
         <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/journals.css') }}" rel="stylesheet">
 
         <style>
             body {
@@ -21,15 +22,21 @@
     </head>
     <body class="antialiased">
     <x-header/>
+    <div class="journals-container">
     @foreach($journals as $journal)
         @can('viewPublic', $journal)
         <div class="journal-container">
-            <a href="/journal/{{$journal->id}}">
-                <div class="journal-title">Title: {{$journal->title}}</div>
-                <div class="journal-year">Year: {{$journal->year}}</div>
-            </a>
+        <a class="book" href="/journal/{{$journal->id}}">
+			<div class="front">
+				<div class="cover">
+                    <div class="num-up">{{$journal->title}}</div>
+                    <div class="author">{{$journal->year}}</div>
+                </div>
+            </div>
+        </a>
         </div>
         @endcan
     @endforeach
+    </div>
     </body>
 </html>

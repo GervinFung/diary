@@ -1,0 +1,151 @@
+/* .journals-journal-container {
+  padding: 50px;
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 350px 350px 350px 350px;
+}
+
+.journal-journal-container {
+  background-color: #38b6ffe1;
+  margin: 10px;
+} */
+
+
+/* .journal-journal-container{
+  width:280px;
+  height:420px;
+  background: #38b6ffe1;
+  border-radius: 20px 16px 12px 32px;
+  background-image: linear-gradient(to right,#38b6ffe1 48px, #38b6ffe1 50px, transparent 50px);  
+}
+.journal-journal-container:after{
+  height: 52px;
+  width: 274px; 
+  bottom: 6px;
+  right:0px;
+  background: white;
+  border-radius: 32px 4px 4px 32px;
+  box-shadow: inset 4px 6px 0px 0px #38b6ffe1;  
+  background-image: linear-gradient(to bottom, transparent 6px, #E4E0CE 8px, transparent 8px, transparent 12px, #E4E0CE 12px, transparent 14px, transparent 18px,#E4E0CE 18px, transparent 20px, transparent 24px, #E4E0CE 24px, transparent 26px, transparent 30px, #E4E0CE 30px, transparent 32px, transparent 36px, #E4E0CE 36px, transparent 38px, transparent 42px, #E4E0CE 42px, transparent 44px, transparent 48px, #E4E0CE 48px, transparent 50px);     
+}
+.journal-journal-container:before{
+  height: 20px;
+  width: 160px; 
+  right: 40px;
+  top: 72px; 
+  background:#38b6ffe1;
+  border-radius: 20px;
+  box-shadow: 0px 36px #38b6ffe1;
+    
+} */
+
+.journals-container {
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.journal-container {
+  z-index: 1;
+  perspective:3000px;
+}
+
+.journal-container .book {
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 450px;
+  margin: 5% auto;
+  border-radius: 2px 4px 4px 2px;
+  background: #38b6ffe1;
+  font-family: acumin-pro, sans-serif;
+  -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+  -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+  box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+  font-weight: 400;
+  color: white;
+  letter-spacing: 2px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform .5s;
+  -moz-transition: -moz-transform .5s;
+  transition: transform .5s;
+}
+
+.journal-container .book:hover {
+  -webkit-transform: rotate3d(0,1,0,10deg);
+  -moz-transform: rotate3d(0,1,0,10deg);
+  transform: rotate3d(0,1,0,10deg);
+}
+
+.journal-container .book > div,
+.journal-container .front > div {
+  display: block;
+  position: absolute;
+}
+
+.journal-container .front {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform .5s;
+  -moz-transition: -moz-transform .5s;
+  transition: transform .5s;
+  -webkit-transform: translate3d(0,0,10px);
+  -moz-transform: translate3d(0,0,10px);
+  transform: translate3d(0,0,10px);
+  z-index: 10;
+}
+
+.journal-container .front > div {
+  width: 300px;
+  height: 450px;
+}
+
+.cover .num-up{
+  width: 200px;
+  position: absolute;
+  top: 64px;
+  left: 47px;
+  line-height: 25px;
+}
+
+.cover .author{
+  position: absolute;
+  top: 400px;
+  right: 50px;
+  }
+
+.journal-container .front > div {
+  border-radius: 0 3px 3px 0;
+  box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.journal-container .front:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: -1px;
+  width: 1px;
+}
+
+.journal-container .cover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  width: 3px;
+  background: rgba(0,0,0,0.1);
+  box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.cover {
+ background: #38b6ffe1;
+}
