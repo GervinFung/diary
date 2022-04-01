@@ -6,6 +6,8 @@ use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
 
 class JournalController extends Controller
 {
@@ -80,8 +82,8 @@ class JournalController extends Controller
     public function create(Request $request)
     {
         $this->validator($request->all())->validate();
-        $data = $req -> all();
-        $data['user_id'] = session()->get('user_id');
+        $data = $request -> all();
+        $data['user_id'] = Auth::user()->id;
         Journal::create($data);
         return redirect('/my-journals');
     }
