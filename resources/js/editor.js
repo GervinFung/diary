@@ -6,6 +6,17 @@ const removeUpload = () => {
     toolbar.children[7].remove();
 };
 
+<<<<<<< HEAD
+=======
+const parseIdFromHref = () => {
+    const {
+        location: { href },
+    } = window;
+    const id = href.split('/').pop();
+    return parseInt(id, 10);
+};
+
+>>>>>>> 4266c4e7745c4f73b81803d597d575d02ecf07ba
 const sendContent = () => {
     const [doc] = document.getElementsByClassName(
         'ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline ck-blurred'
@@ -13,6 +24,7 @@ const sendContent = () => {
     if (!doc) {
         throw new Error('Where is the text editor bro?');
     }
+<<<<<<< HEAD
     // setInterval(() => {
     //     axios
     //         .post('/api/diary', {
@@ -21,6 +33,14 @@ const sendContent = () => {
     //         .then(({ data }) => {
     //             doc.innerHTML = data.content;
     //         })
+=======
+    const id = parseIdFromHref();
+    // setInterval(() => {
+    //     axios
+    //         .post(`/api/diary/${id}`, {
+    //             content: doc.innerHTML,
+    //         })
+>>>>>>> 4266c4e7745c4f73b81803d597d575d02ecf07ba
     //         .catch(alert);
     // }, 5 * 1000);
 };

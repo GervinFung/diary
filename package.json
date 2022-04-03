@@ -12,7 +12,8 @@
         "format": "yarn prettier --write resources/**/*.blade.php resources/**/**/*.blade.php resources/css/*.css resources/scss/*.scss resources/js/*.js",
         "seed": "php artisan db:seed",
         "storage-link": "php artisan storage:link",
-        "postinstall": "yarn migrate && yarn storage-link",
+        "install": "yarn && composer install",
+        "postinstall": "yarn storage-link",
         "migrate": "php artisan migrate",
         "migrate-refresh-seed": "php artisan migrate:refresh --seed",
         "unix-kill-php": "bash && kill $(ps aux | grep '[p]hp' | awk '{print $2}')"

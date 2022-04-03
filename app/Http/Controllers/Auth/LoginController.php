@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -22,7 +24,7 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Where to redirect users after sign in.
      *
      * @var string
      */
@@ -41,17 +43,25 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.login', ['url' => 'user']);
+        return view('auth/sign-in', ['url' => 'user']);
     }
 
     public function signIn(Request $request)
     {
         $this->validate($request, [
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
         ]);
 
-        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+        if (
+            Auth::guard('user')->attempt(
+                [
+                    'email' => trim($request->email),
+                    'password' => $request->password,
+                ],
+                $request->get('remember')
+            )
+        ) {
             // some code
             return redirect('/');
         }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,7 +63,11 @@ class JournalController extends Controller
     {
         if (Auth::check()) {
             $journals = Journal::all();
+<<<<<<< HEAD
+            return view('myJournals', ['journals' => $journals]);
+=======
             return view('journal/myJournals', ['journals' => $journals]);
+>>>>>>> 4266c4e7745c4f73b81803d597d575d02ecf07ba
         }
         return redirect('sign-in');
     }
@@ -103,7 +108,11 @@ class JournalController extends Controller
         $journal->title = $request->title;
         $journal->save();
         $request->session()->flash('journal_updated', 'Journal updated');
+<<<<<<< HEAD
+        return redirect('/journal/' . $request->id);
+=======
         return redirect('journal/journal/' . $request->id);
+>>>>>>> 4266c4e7745c4f73b81803d597d575d02ecf07ba
     }
 
     public function destroy($id)

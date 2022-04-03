@@ -14,8 +14,20 @@
     display: flex;
 }
 
+<<<<<<< HEAD
 .save-button {
     margin: 16px 0 0 0;
+=======
+.go-to-journal {
+    text-decoration: none;
+    color: white;
+    background-color: #17a2f9;
+    :hover {
+        text-decoration: none;
+        color: white;
+        background-color: #17a2b8;
+    }
+>>>>>>> 4266c4e7745c4f73b81803d597d575d02ecf07ba
 }
 
 $editor-padding: 12px 16px;
@@ -27,3 +39,18 @@ $editor-padding: 12px 16px;
 .card-header {
     padding: $editor-padding;
 }
+<<<<<<< HEAD
+=======
+
+.btn-container-save-preview {
+    margin: 16px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.time-date {
+    display: grid;
+    text-align: end;
+}
+>>>>>>> 4266c4e7745c4f73b81803d597d575d02ecf07ba

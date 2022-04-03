@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,63 +15,75 @@
     <link href="{{ URL::asset('css/journal.css') }}" rel="stylesheet">
 
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+    </style>
 </head>
+
 <body>
-    <x-header/>
-    @if(session('journal_updated'))
-    <div class="popup show">
-        <div>
-            <h2>{{ session('journal_updated') }}</h2>
-            <button name="close" onclick="closePopup()">Close</button>
+    <x-header />
+    @if (session('journal_updated'))
+        <div class="popup show">
+            <div>
+                <h2>{{ session('journal_updated') }}</h2>
+                <button name="close" onclick="closePopup()">Close</button>
+            </div>
         </div>
-    </div>
     @endif
-    <div class="journal-container">
+    <div class="single-journal-container">
         <div class="journal-cover">
             <div class="journal-detail">
-                <form action="/journal/{{ $journal['id'] }}/edit" method="post">
+                <form action="/api/journal/{{ $journal['id'] }}" method="POST">
                     @csrf
-                    <input type="text" name="title" value="{{ $journal['title'] }}" readonly/>
+                    <input type="text" name="title" value="{{ $journal['title'] }}" readonly />
                     <span class="error-msg">
                         @error('title')
-                        <i class='fas fa-exclamation-triangle'></i>
-                        {{ $message }}
+                            <i class='fas fa-exclamation-triangle'></i>
+                            {{ $message }}
                         @enderror
                     </span>
-                    <input type="number" name="year" value="{{ $journal['year'] }}" readonly/>
+                    <input type="number" name="year" value="{{ $journal['year'] }}" readonly />
                     <span class="error-msg">
                         @error('year')
-                        <i class='fas fa-exclamation-triangle'></i>
-                        {{ $message }}
+                            <i class='fas fa-exclamation-triangle'></i>
+                            {{ $message }}
                         @enderror
                     </span>
-                    <input type="hidden" name="id" value="{{ $journal['id'] }}"/>
+                    <input type="hidden" name="id" value="{{ $journal['id'] }}" />
                     @can('update', $journal)
-                    <div name="edit" class="btn edit" onclick="toggleEditMode()"><i class="fa fa-edit"></i><i class="fa fa-close"></i></div>
-                    <button type="submit" name="save" class="btn save edit-mode-btn">Save</button>
+                        <div name="edit" class="btn edit" onclick="toggleEditMode()"><i class="fa fa-edit"></i><i
+                                class="fa fa-close"></i></div>
+                        <button type="submit" name="save" class="btn save edit-mode-btn">Save</button>
                     @endcan
                 </form>
                 @can('delete', $journal)
-                <form action="#" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <input type="hidden" name="id" value="{{ $journal['id'] }}"/>
-                    <button type="submit" class="btn delete"><i class="fa fa-trash"></i></button>
-                </form>
+                    <form action="/api/journal/{{ $journal['id'] }}" onsubmit="return confirm('Confirm delete Journal?')"
+                        method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="id" value="{{ $journal['id'] }}" />
+                        <button type="submit" class="btn delete"><i class="fa fa-trash"></i></button>
+                    </form>
                 @endcan
             </div>
         </div>
     </div>
     @include('diariesInner')
-    <div class="add-button-container">
-        <a href="create-diary" class="link">
-            <i class="fa fa-plus"></i>
-        </a>
-    </div>
+    <form action="/api/diary" method="post">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="journal_id" value="{{ $journal['id'] }}" />
+        <div class="add-button-container">
+            <button type="submit" class="link"><i class="fa fa-plus"></i></button>
+        </div>
+    </form>
 </body>
 <script type="text/javascript">
-    var original_title = "<?php Print($journal['title']); ?>";
-    var original_year = "<?php Print($journal['year']); ?>";
+    const original_title = "<?php print $journal['title']; ?>";
+    const original_year = "<?php print $journal['year']; ?>";
 
     function toggleEditMode() {
         if (document.getElementsByName('title')[0].readOnly) {
@@ -98,4 +111,5 @@
         document.getElementsByClassName('popup')[0].classList.toggle('show');
     }
 </script>
+
 </html>
