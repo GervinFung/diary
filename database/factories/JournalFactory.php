@@ -14,9 +14,9 @@ class JournalFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => rand(1,5),
-            'year' => rand(2010,2022),
-            "title" => $this->faker->text(30)
+            'user_id' => rand(1, 5),
+            'year' => rand(2010, 2022),
+            'title' => $this->faker->text(30),
         ];
     }
 }

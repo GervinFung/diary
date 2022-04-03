@@ -33,3 +33,4 @@ Route::get('journal/{journal_id}', [JournalController::class, 'showOne']);
 Route::view('create-journal', 'createJournal');
 Route::view('journal/create-diary', 'createDiary');
 Route::get('diary/{diary_id}', [DiaryController::class, 'showOne']);
+Route::get('diary', [DiaryController::class, 'showOne']);

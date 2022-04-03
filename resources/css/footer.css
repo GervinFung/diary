@@ -34,13 +34,13 @@ footer hr {
     position: relative;
 }
 
-@media only screen and (min-width: 571px)  {
+@media only screen and (min-width: 571px) {
     .footer-text {
         width: 530px;
     }
 }
 
-@media only screen and (max-width: 570px)  {
+@media only screen and (max-width: 570px) {
     .footer-text {
         width: 340px;
     }

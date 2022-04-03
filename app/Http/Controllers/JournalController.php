@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-
 
 class JournalController extends Controller
 {
@@ -30,7 +28,7 @@ class JournalController extends Controller
         foreach ($diaries as $diary) {
             array_push($diaries_id, $diary->id);
         }
-        return view('journal', [
+        return view('journal/journal', [
             'diaries_id' => $diaries_id,
             'user_name' => $user_name,
         ]);
@@ -57,14 +55,14 @@ class JournalController extends Controller
     public function index()
     {
         $journals = Journal::all();
-        return view('publicJournals', ['journals' => $journals]);
+        return view('journal/publicJournals', ['journals' => $journals]);
     }
 
     public function showMyJournals()
     {
         if (Auth::check()) {
             $journals = Journal::all();
-            return view('myJournals', ['journals' => $journals]);
+            return view('journal/myJournals', ['journals' => $journals]);
         }
         return redirect('sign-in');
     }
@@ -77,7 +75,7 @@ class JournalController extends Controller
             return redirect('/');
         }
 
-        return view('journal', [
+        return view('journal/journal', [
             'journal' => $journal,
             'diaries' => $journal->getDiaries,
         ]);
@@ -89,7 +87,7 @@ class JournalController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         Journal::create($data);
-        return redirect('/my-journals');
+        return redirect('journal/my-journals');
     }
 
     public function edit(Request $request)
@@ -105,14 +103,14 @@ class JournalController extends Controller
         $journal->title = $request->title;
         $journal->save();
         $request->session()->flash('journal_updated', 'Journal updated');
-        return redirect('/journal/' . $request->id);
+        return redirect('journal/journal/' . $request->id);
     }
 
     public function destroy($id)
     {
         $diary = Journal::findOrFail($id);
         $diary->delete();
-        return redirect('/my-journals');
+        return redirect('journal/my-journals');
     }
     // ZR - END
 }

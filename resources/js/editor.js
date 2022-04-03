@@ -6,6 +6,14 @@ const removeUpload = () => {
     toolbar.children[7].remove();
 };
 
+const parseIdFromHref = () => {
+    const {
+        location: { href },
+    } = window;
+    const id = href.split('/').pop();
+    return parseInt(id, 10);
+};
+
 const sendContent = () => {
     const [doc] = document.getElementsByClassName(
         'ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline ck-blurred'
@@ -13,13 +21,11 @@ const sendContent = () => {
     if (!doc) {
         throw new Error('Where is the text editor bro?');
     }
+    const id = parseIdFromHref();
     // setInterval(() => {
     //     axios
-    //         .post('/api/diary', {
+    //         .post(`/api/diary/${id}`, {
     //             content: doc.innerHTML,
-    //         })
-    //         .then(({ data }) => {
-    //             doc.innerHTML = data.content;
     //         })
     //         .catch(alert);
     // }, 5 * 1000);
