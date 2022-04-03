@@ -29,9 +29,7 @@ fs.writeFile(
         })
         .sort((a, b) => a.localeCompare(b))
         .join('.\n')}`,
-    (err) => {
-        if (err) {
-            console.error(err);
-        }
-    }
+    (err) => 
+        err ? console.error(err) : console.log('webpack-mix.js generated')
+
 );
