@@ -40,3 +40,39 @@
 </body>
 
 </html>
+        <title>Home</title>
+        
+        <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/header.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/footer.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/journals.css') }}" rel="stylesheet">
+
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+            }
+        </style>
+    </head>
+    <body class="antialiased">
+    <x-header/>
+    <div class="journals-container">
+    @foreach($journals as $journal)
+        @can('view', $journal)
+        <div class="journal-container">
+        <a class="book" href="/journal/{{$journal->id}}">
+			<div class="front">
+				<div class="cover">
+                    <div class="num-up">{{$journal->title}}</div>
+                    <div class="author">{{$journal->year}}</div>
+                </div>
+            </div>
+        </a>
+        </div>
+        @endcan
+    @endforeach
+    </div>
+    </body>
+</html>

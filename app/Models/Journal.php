@@ -13,6 +13,7 @@ class Journal extends Model
 
     // LSW - START
     public $table = "journal";
+    protected $fillable = ['title', 'year', 'user_id'];
 
     function getDiaries()
     {
