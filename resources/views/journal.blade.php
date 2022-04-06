@@ -51,7 +51,7 @@
                     @endcan
                 </form>
                 @can('delete', $journal)
-                <form action="#" method="post">
+                <form action="/{{$journal['id']}}/delete" method="post">
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="id" value="{{ $journal['id'] }}"/>
