@@ -13,19 +13,19 @@ class CreateJournalTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists("journal");
-        Schema::create("journal", function (Blueprint $table) {
+        Schema::dropIfExists('journal');
+        Schema::create('journal', function (Blueprint $table) {
             $table->id();
             $table
-                ->foreignId("user_id")
-                ->constrained("user")
+                ->foreignId('user_id')
+                ->constrained('user')
                 ->nullable(false)
-                ->onDelete("cascade");
-            $table->integer("year")->nullable(false);
-            $table->string("title")->nullable(false);
-            $table->timestamp("created_at")->useCurrent();
+                ->onDelete('cascade');
+            $table->integer('year')->nullable(false);
+            $table->string('title')->nullable(false);
+            $table->timestamp('created_at')->useCurrent();
             $table
-                ->timestamp("updated_at")
+                ->timestamp('updated_at')
                 ->nullable(true)
                 ->useCurrentOnUpdate();
         });
@@ -38,6 +38,6 @@ class CreateJournalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("journal");
+        Schema::dropIfExists('journal');
     }
 }

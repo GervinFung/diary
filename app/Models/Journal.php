@@ -12,7 +12,8 @@ class Journal extends Model
     use HasFactory;
 
     // LSW - START
-    public $table = "journal";
+    public $table = 'journal';
+    protected $fillable = ['title', 'year', 'user_id'];
 
     function getDiaries()
     {

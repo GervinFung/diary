@@ -6,6 +6,7 @@ use App\Models\Journal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class JournalController extends Controller
 {
@@ -23,13 +24,13 @@ class JournalController extends Controller
     {
         $diaries = Journal::find($id)->getDiaries;
         $user_name = User::find(Journal::find($id)->user_id)->name;
-        $diaries_id = array();
+        $diaries_id = [];
         foreach ($diaries as $diary) {
             array_push($diaries_id, $diary->id);
         }
-        return view('journal', [
+        return view('journal/journal', [
             'diaries_id' => $diaries_id,
-            'user_name' => $user_name
+            'user_name' => $user_name,
         ]);
     }
     // LSW - END
@@ -47,43 +48,46 @@ class JournalController extends Controller
 
         return Validator::make($data, [
             'year' => "required | integer | digits:4 | min:1800 | max:$cur_year",
-            'title' => 'required'
+            'title' => 'required',
         ]);
     }
 
     public function index()
     {
         $journals = Journal::all();
-        return view('publicJournals', ['journals' => $journals]);
+        return view('journal/publicJournals', ['journals' => $journals]);
     }
 
-    public function show()
+    public function showMyJournals()
     {
-        $journals = Journal::all();
-        return view('myJournals', ['journals' => $journals]);
+        if (Auth::check()) {
+            $journals = Journal::all();
+            return view('journal/myJournals', ['journals' => $journals]);
+        }
+        return redirect('sign-in');
     }
 
     public function showOne($journal_id)
     {
         $journal = Journal::find($journal_id);
 
-        if (!isset($journal)){
+        if (!isset($journal)) {
             return redirect('/');
         }
 
-        return view('journal', [
+        return view('journal/journal', [
             'journal' => $journal,
-            'diaries' => $journal->getDiaries
+            'diaries' => $journal->getDiaries,
         ]);
     }
 
     public function create(Request $request)
     {
         $this->validator($request->all())->validate();
-        $data = $req -> all();
-        $data['user_id'] = session()->get('user_id');
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
         Journal::create($data);
-        return redirect('/my-journals');
+        return redirect('journal/my-journals');
     }
 
     public function edit(Request $request)
@@ -91,7 +95,7 @@ class JournalController extends Controller
         $this->validator($request->all())->validate();
         $journal = Journal::find($request->id);
 
-        if (!isset($journal)){
+        if (!isset($journal)) {
             return redirect('/');
         }
 
@@ -99,15 +103,14 @@ class JournalController extends Controller
         $journal->title = $request->title;
         $journal->save();
         $request->session()->flash('journal_updated', 'Journal updated');
-        return redirect('/journal/'.$request->id);
+        return redirect('journal/journal/' . $request->id);
     }
 
     public function destroy($id)
     {
-        $diary = Diary::find($id);
-        $journalId = $diary->journal_id;
+        $diary = Journal::findOrFail($id);
         $diary->delete();
-        return redirect('/my-journals');
+        return redirect('journal/my-journals');
     }
     // ZR - END
 }

@@ -1,18 +1,32 @@
 {
     "private": true,
     "scripts": {
-        "dev": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "mix --production"
+        "generate-webpack": "node script/generate-webpack.js",
+        "dev": "yarn generate-webpack && mix",
+        "watch": "yarn dev watch",
+        "watch-poll": "yarn dev watch -- --watch-options-poll=1000",
+        "hot": "yarn dev watch --hot",
+        "prod": "yarn dev --production",
+        "start": "concurrently \"php artisan serve\" \"yarn watch\"",
+        "format": "yarn prettier --write resources/**/*.blade.php resources/**/**/*.blade.php resources/css/*.css resources/scss/*.scss resources/js/*.js",
+        "seed": "php artisan db:seed",
+        "storage-link": "php artisan storage:link",
+        "postinstall": "composer install && yarn storage-link",
+        "migrate": "php artisan migrate",
+        "migrate-refresh-seed": "php artisan migrate:refresh --seed",
+        "unix-kill-php": "bash && kill $(ps aux | grep '[p]hp' | awk '{print $2}')"
     },
     "devDependencies": {
         "@prettier/plugin-php": "^0.18.3",
+        "@shufo/prettier-plugin-blade": "^1.2.2",
         "axios": "^0.21",
+        "concurrently": "^7.0.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
-        "prettier": "^2.5.1"
+        "prettier": "^2.6.1",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.49.9",
+        "sass-loader": "^12.1.0"
     }
 }
