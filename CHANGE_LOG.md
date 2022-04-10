@@ -1,3 +1,7 @@
+## (11 April 2022)
+
+-   Added style for auth page
+
 ## (3 April 2022)
 
 -   Redirect user to login if not authenticated `my journal` is clicked

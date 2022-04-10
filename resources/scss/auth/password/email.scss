@@ -1,0 +1,9 @@
+@import '../auth';
+
+.send-email-btn {
+    background-color: $main-color;
+}
+
+.send-email-btn:hover {
+    background-color: $main-hover-color;
+}
