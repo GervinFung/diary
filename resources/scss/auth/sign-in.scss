@@ -1,0 +1,13 @@
+@import 'auth';
+
+.selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remember-me-container {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: baseline;
+}
