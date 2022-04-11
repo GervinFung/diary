@@ -52,7 +52,7 @@ class JournalController extends Controller
         $journal = Journal::find($journal_id);
         $diaries = Diary::where('journal_id', $journal_id)
                         ->orderBy('date', 'desc')
-                        ->get();
+                        ->paginate(10);
         if (!isset($journal)) {
             return redirect('/');
         }

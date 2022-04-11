@@ -72,10 +72,18 @@
             </div>
         </div>
     </div>
+    </div>
     @include('diariesInner')
     <div class="add-button-container">
         <a href="create-diary"><i class="fa fa-plus"></i></a>
     </div>
+    @if (count($diaries) > 4)
+    <div style="height:calc({{count($diaries) - 4}} * 100px + 20px);">
+    @else
+    <div style="height: 60px;">
+    @endif
+    </div>
+    <x-footer />
 </body>
 <script type="text/javascript">
     const original_title = "<?php print $journal['title']; ?>";

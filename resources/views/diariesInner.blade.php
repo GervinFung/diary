@@ -1,6 +1,6 @@
 <div class="diaries-container">
     @php
-        $i = 1;
+        $i = 0;
     @endphp
     @foreach ($diaries as $diary)
         <div class="paper" style="top: calc(-{{ $i }} * 20px);">
@@ -17,4 +17,11 @@
             $i++;
         @endphp
     @endforeach
+</div>
+@if (count($diaries) > 4)
+<div class="page-number-container" style="top:calc({{count($diaries) - 4}} * 100px);">
+@else
+<div class="page-number-container" style="top: 20px;">
+@endif
+    {{ $diaries->links() }}
 </div>
