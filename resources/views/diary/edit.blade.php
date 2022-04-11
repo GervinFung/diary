@@ -36,15 +36,21 @@
                     <div class="card-body">
                         <form method="POST" action="/api/diary/{{ $diary->id }}" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="form-group upper-group">
+                                <input type="hidden" name="id" value="{{ $diary->id }}" />
+                                <input type="hidden" name="journal_id" value="{{ $diary->journal_id }}" />
                                 <div>
-                                    <label><strong>Title</strong></label>
-                                    <input type="text" name='title' value='{{ $diary->title }}'
-                                        class="form-control" />
+                                    <label><strong>Date</strong></label>
+                                    <input type="date" name='date' value='{{ $diary->date }}' class="form-control"/>
+                                    <span class="error-msg">
+                                        @error('date')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
                                 <div class="time-date">
                                     <label><strong>Created at:</strong> {{ $diary->created_at }}</label>
-                                    <input type="hidden" name="id" value="{{ $diary->id }}" />
                                     <label><strong>Updated at:</strong> {{ $diary->updated_at ?? '-' }}</label>
                                 </div>
                             </div>
