@@ -46,11 +46,6 @@
 
                             <label for="remember">Remember Me</label>
                         </div>
-                        @if (Route::has('password.request'))
-                            <div>
-                                <a href="{{ route('password.request') }}">Forgotten Password?</a>
-                            </div>
-                        @endif
                     </div>
 
                     <div class="btn-container">

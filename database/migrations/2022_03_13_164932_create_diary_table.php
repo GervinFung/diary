@@ -20,7 +20,7 @@ class CreateDiaryTable extends Migration
                 ->constrained('journal')
                 ->nullable(false)
                 ->onDelete('cascade');
-            $table->text('title')->nullable(false);
+            $table->text('date')->nullable(false);
             $table->text('content')->nullable(true);
             $table->timestamp('created_at')->useCurrent();
             $table

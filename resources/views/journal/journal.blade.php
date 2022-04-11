@@ -25,10 +25,10 @@
 
 <body>
     <x-header />
-    @if (session('journal_updated'))
+    @if (Session::has('journal_updated'))
         <div class="popup show">
             <div>
-                <h2>{{ session('journal_updated') }}</h2>
+                <h2>{{ Session::get('journal_updated') }}</h2>
                 <button name="close" onclick="closePopup()">Close</button>
             </div>
         </div>
@@ -38,6 +38,7 @@
             <div class="journal-detail">
                 <form action="/api/journal/{{ $journal['id'] }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <input type="text" name="title" value="{{ $journal['title'] }}" readonly />
                     <span class="error-msg">
                         @error('title')
@@ -72,14 +73,9 @@
         </div>
     </div>
     @include('diariesInner')
-    <form action="/api/diary" method="post">
-        @csrf
-        @method('PUT')
-        <input type="hidden" name="journal_id" value="{{ $journal['id'] }}" />
-        <div class="add-button-container">
-            <button type="submit" class="link"><i class="fa fa-plus"></i></button>
-        </div>
-    </form>
+    <div class="add-button-container">
+        <a href="create-diary"><i class="fa fa-plus"></i></a>
+    </div>
 </body>
 <script type="text/javascript">
     const original_title = "<?php print $journal['title']; ?>";

@@ -41,6 +41,7 @@
 .burger-menu-container {
     display: none;
     position: relative;
+    z-index: 5000;
 }
 
 .bar1,
