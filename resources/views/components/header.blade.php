@@ -8,13 +8,13 @@
                 <li class="menu-item">
                     <a class="menu-link" href="/">Home</a>
                 </li>
-                <li class="menu-item">
-                    <a class="menu-link" href="/public-journals">Public Journals</a>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link" href="/my-journals">My Journals</a>
-                </li>
                 @auth
+                    <li class="menu-item">
+                        <a class="menu-link" href="/public-journals">Public Journals</a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/my-journals">My Journals</a>
+                    </li>
                     <li class="menu-item">
                         <a class="menu-link" href="/sign-out">Sign out</a>
                     </li>
@@ -38,13 +38,13 @@
                 <li class="burger-menu-item">
                     <a class="burger-menu-link" href="/">Home</a>
                 </li>
-                <li class="burger-menu-item">
-                    <a class="burger-menu-link" href="/public-journals">Public Journals</a>
-                </li>
-                <li class="burger-menu-item">
-                    <a class="burger-menu-link" href="/my-journals">My Journals</a>
-                </li>
                 @auth
+                    <li class="burger-menu-item">
+                        <a class="burger-menu-link" href="/public-journals">Public Journals</a>
+                    </li>
+                    <li class="burger-menu-item">
+                        <a class="burger-menu-link" href="/my-journals">My Journals</a>
+                    </li>
                     <li class="burger-menu-item">
                         <a class="burger-menu-link" href="/sign-out">Sign out</a>
                     </li>

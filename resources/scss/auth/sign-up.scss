@@ -1,0 +1,24 @@
+@import 'auth';
+
+.terms-conditions {
+    color: #fd4d4d;
+    text-decoration: none;
+}
+
+.user-type-selection {
+    padding: $padding;
+    font-size: $font-size;
+    box-sizing: $box-sizing;
+    border-radius: $border-radius;
+    resize: vertical;
+    border: 1px solid #dddfe2;
+    background-color: #fff;
+    margin: 8px 0 16px 0;
+    outline: none !important;
+    font-family: 'Nunito', sans-serif;
+}
+
+.user-type-selection:focus {
+    border: 1px solid #1877f2;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}

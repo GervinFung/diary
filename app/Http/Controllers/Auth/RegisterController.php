@@ -52,7 +52,13 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:user'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:user',
+            ],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'type' => ['required', 'string', 'in:Public,Private'],
         ]);
@@ -75,18 +81,18 @@ class RegisterController extends Controller
     }
 
     /**
-    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-    */
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function showRegisterForm()
     {
-        return view('auth.register', ['url' => 'user']);
+        return view('auth.sign-up', ['url' => 'user']);
     }
 
     /**
-    * @param Request $request
-    *
-    * @return \Illuminate\Http\RedirectResponse
-    */
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     protected function createUser(Request $request)
     {
         $this->validator($request->all())->validate();

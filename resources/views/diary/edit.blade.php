@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Diary</title>
-    <link rel="stylesheet" href="{{ URL::asset('scss/editor.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('scss/diary/editor.css') }}">
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('css/header.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('css/footer.css') }}" rel="stylesheet" />
@@ -85,6 +85,6 @@
         .create(document.getElementById('editor'))
         .catch(alert);
 </script>
-<script src="{{ URL::asset('js/editor.js') }}"></script>
+<script src="{{ URL::asset('js/diary/editor.js') }}"></script>
 
 </html>

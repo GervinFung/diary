@@ -13,23 +13,29 @@ const getAllPaths = (dir) =>
         return extension ? [path] : [];
     });
 
+const mapResourceToPublic = (file, type) =>
+    `${type}('${file}', '${file
+        .replace('resources', 'public')
+        .split('/')
+        .filter((_, i, arr) => i !== arr.length - 1)
+        .join('/')}')`;
+
 fs.writeFile(
     'webpack.mix.js',
     `require('laravel-mix').${getAllPaths('resources')
         .map((file) => {
             if (file.includes('scss')) {
-                return `sass('${file}', 'public/scss')`;
+                return mapResourceToPublic(file, 'sass');
             }
             if (file.includes('css')) {
-                return `postCss('${file}', 'public/css')`;
+                return mapResourceToPublic(file, 'postCss');
             }
             if (file.includes('js')) {
-                return `js('${file}', 'public/js')`;
+                return mapResourceToPublic(file, 'js');
             }
         })
         .sort((a, b) => a.localeCompare(b))
         .join('.\n')}`,
-    (err) => 
+    (err) =>
         err ? console.error(err) : console.log('webpack-mix.js generated')
-
 );
