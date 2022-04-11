@@ -24,13 +24,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::view('journal/create-diary', 'diary.create');
+Route::view('create-journal', 'journal.create');
 Route::get('sign-in', [LoginController::class, 'showLoginForm']);
 Route::get('sign-up', [RegisterController::class, 'showRegisterForm']);
 Route::get('sign-out', [LoginController::class, 'logout']);
 Route::get('public-journals', [JournalController::class, 'index']);
 Route::get('my-journals', [JournalController::class, 'showMyJournals']);
 Route::get('journal/{journal_id}', [JournalController::class, 'showOne']);
-Route::view('create-journal', 'journal.create');
-Route::view('create-diary', 'diary.create');
 Route::get('diary/{diary_id}', [DiaryController::class, 'showOne']);
 Route::get('diary', [DiaryController::class, 'showOne']);

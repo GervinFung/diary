@@ -13,9 +13,5 @@ class Handler extends ExceptionHandler
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
-        // dk how to do yet
-        // if ($request->is('user') || !$request->is('/') || !$request->is('/sign') || !$request->is('/')) {
-        //     return redirect()->guest('/sign-in');
-        // }
     }
 }
