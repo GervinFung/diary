@@ -13,23 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class DiaryController extends Controller
 {
-    // LSW - START
-    function getDiary($id)
-    {
-        $diary = Diary::find($id);
-        $journal = Journal::find($diary->journal_id);
-        $user = User::find($journal->user_id);
-        return view('diary', [
-            'id' => $diary->id,
-            'content' => $diary->content,
-            'journal_title' => $journal->title,
-            'journal_year' => $journal->year,
-            'user_name' => $user->name,
-        ]);
-    }
-    // LSW - END
-
-    // ZR - START
     protected function validator(array $data, $acceptedYear)
     {
         $min_date = DateTime::createFromFormat('Y-m-d', $acceptedYear.'-01-01')->format('Y-m-d');
@@ -76,5 +59,4 @@ class DiaryController extends Controller
         $diary->delete();
         return redirect('journal/' . $journalId);
     }
-    // ZR - END
 }
