@@ -59,7 +59,15 @@ class RegisterController extends Controller
                 'max:255',
                 'unique:user',
             ],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => [
+                'required',
+                'regex:/[A-Z]/',
+                'regex:/[a-z]/',
+                'regex:/[0-9]/',
+                'regex:/\W/',
+                'min:8',
+                'confirmed',
+            ],
             'type' => ['required', 'string', 'in:Public,Private'],
         ]);
     }
