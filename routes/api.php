@@ -27,11 +27,11 @@ Route::post('/sign-in', [LoginController::class, 'signIn']);
 Route::post('/sign-up', [RegisterController::class, 'createUser']);
 
 // Journal
-Route::put('/journal', [JournalController::class, 'create']);
-Route::post('/journal/{journal_id}', [JournalController::class, 'edit']);
+Route::post('/journal', [JournalController::class, 'create']);
+Route::put('/journal/{journal_id}', [JournalController::class, 'edit']);
 Route::delete('/journal/{journal_id}', [JournalController::class, 'destroy']);
 
 // Diary
-Route::put('/diary', [DiaryController::class, 'create']);
-Route::post('/diary/{diary_id}', [DiaryController::class, 'edit']);
+Route::post('/diary', [DiaryController::class, 'create']);
+Route::put('/diary/{diary_id}', [DiaryController::class, 'edit']);
 Route::delete('/diary/{diary_id}', [DiaryController::class, 'destroy']);
