@@ -54,8 +54,11 @@ class JournalController extends Controller
 
     public function index()
     {
-        $journals = Journal::all();
-        return view('journal/publicJournals', ['journals' => $journals]);
+        if (Auth::check()) {
+            $journals = Journal::all();
+            return view('journal/publicJournals', ['journals' => $journals]);
+        }
+        return redirect('sign-in');
     }
 
     public function showMyJournals()
