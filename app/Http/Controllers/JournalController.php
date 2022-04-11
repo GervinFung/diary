@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class JournalController extends Controller
 {
@@ -55,7 +56,8 @@ class JournalController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $journals = Journal::all();
+            $journals = Journal::orderBy('year', 'desc')
+                                ->get();
             return view('journal/publicJournals', ['journals' => $journals]);
         }
         return redirect('sign-in');
@@ -64,7 +66,8 @@ class JournalController extends Controller
     public function showMyJournals()
     {
         if (Auth::check()) {
-            $journals = Journal::all();
+            $journals = Journal::orderBy('year', 'desc')
+                                ->get();
             return view('journal/myJournals', ['journals' => $journals]);
         }
         return redirect('sign-in');
@@ -90,7 +93,7 @@ class JournalController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         Journal::create($data);
-        return redirect('journal/my-journals');
+        return redirect('my-journals');
     }
 
     public function edit(Request $request)
@@ -106,14 +109,14 @@ class JournalController extends Controller
         $journal->title = $request->title;
         $journal->save();
         $request->session()->flash('journal_updated', 'Journal updated');
-        return redirect('journal/journal/' . $request->id);
+        return redirect('journal/' . $request->id);
     }
 
     public function destroy($id)
     {
         $diary = Journal::findOrFail($id);
         $diary->delete();
-        return redirect('journal/my-journals');
+        return redirect('my-journals');
     }
     // ZR - END
 }
