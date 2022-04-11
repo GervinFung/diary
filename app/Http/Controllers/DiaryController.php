@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Diary;
 use App\Models\Journal;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -15,11 +14,21 @@ class DiaryController extends Controller
 {
     protected function validator(array $data, $acceptedYear)
     {
-        $min_date = DateTime::createFromFormat('Y-m-d', $acceptedYear.'-01-01')->format('Y-m-d');
-        $max_date = DateTime::createFromFormat('Y-m-d', $acceptedYear.'-12-31')->format('Y-m-d');
+        $min_date = DateTime::createFromFormat(
+            'Y-m-d',
+            $acceptedYear . '-01-01'
+        )->format('Y-m-d');
+        $max_date = DateTime::createFromFormat(
+            'Y-m-d',
+            $acceptedYear . '-12-31'
+        )->format('Y-m-d');
         return Validator::make($data, [
             'journal_id' => 'required',
-            'date' => 'required | date | after_or_equal:'.$min_date.' | before_or_equal:'.$max_date,
+            'date' =>
+                'required | date | after_or_equal:' .
+                $min_date .
+                ' | before_or_equal:' .
+                $max_date,
         ]);
     }
 
