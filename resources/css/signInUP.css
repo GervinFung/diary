@@ -1,6 +1,6 @@
 .container {
     position: relative;
-    max-width: 840px;
+    max-width: 460px;
     width: 100%;
     margin: 0 auto 100px;
 }
@@ -9,7 +9,7 @@ section {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    background: rgb(216, 216, 216);
 }
 
 label {
@@ -140,7 +140,7 @@ input[type='password']:focus {
     text-transform: capitalize;
     color: #fff;
     border: 0 none;
-    border-radius: 15px;
+    border-radius: var(--borderRadius);
     font-size: 18px;
     font-weight: 500;
     -webkit-appearance: none;

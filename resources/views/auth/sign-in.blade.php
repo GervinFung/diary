@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row-mb-0">
+                                <div class="row mb-0">
                                     <div class="buttonContainer">
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Login') }}
