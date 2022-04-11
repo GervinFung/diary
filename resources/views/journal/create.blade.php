@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
+<title>Create new journal</title>
+<link href="{{ URL::asset('css/addJournal.css') }}" rel="stylesheet">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Add Journal</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/addJournal.css') }}">
-    <link href="{{ URL::asset('css/header.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/footer.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
-    <x-header />
+@section('content')
     <div class="container">
         <div class="app">
 
@@ -32,9 +19,8 @@
             </div>
 
             <div class="card">
-                <form action="/journal" method="POST">
+                <form action="api/journal" method="POST">
                     @csrf
-                    @method('PUT')
                     <div class="input">
                         <input type="text" name="title" placeholder="Enter Journal's Title...">
                         <span class="error-msg">
@@ -56,7 +42,4 @@
             </div>
         </div>
     </div>
-    <x-footer />
-</body>
-
-</html>
+@endsection

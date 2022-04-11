@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
+<title>Public Journals</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="{{ URL::asset('css/journals.css') }}" rel="stylesheet">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Home</title>
-
-    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/header.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/footer.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/journals.css') }}" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-    </style>
-</head>
-
-</html>
-
-<body class="antialiased">
-    <x-header />
+@section('content')
     <div class="journals-container">
         @foreach ($journals as $journal)
             @can('viewPublic', $journal)
@@ -42,7 +20,4 @@
             @endcan
         @endforeach
     </div>
-    <x-footer />
-</body>
-
-</html>
+@endsection
