@@ -35,7 +35,6 @@ class DiaryController extends Controller
     public function showOne($diary_id)
     {
         $diary = Diary::find($diary_id);
-        Log::debug($diary);
         return view('diary/edit', ['diary' => $diary]);
     }
 
@@ -51,9 +50,7 @@ class DiaryController extends Controller
     {
         $acceptedYear = Journal::find($request->journal_id)->year;
         $this->validator($request->all(), $acceptedYear)->validate();
-        Log::debug($request);
         $diary = Diary::find($request->id);
-        Log::debug($diary);
         $diary->date = $request->date;
         $diary->updated_at = Carbon::now();
         $diary->content = $request->content;
