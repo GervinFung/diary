@@ -17,7 +17,7 @@
         "unix-kill-php": "bash && kill $(ps aux | grep '[p]hp' | awk '{print $2}')"
     },
     "devDependencies": {
-        "@popperjs/core": "^2.10.2",
+        "@popperjs/core": "^2.11.5",
         "@prettier/plugin-php": "^0.18.3",
         "@shufo/prettier-plugin-blade": "^1.2.2",
         "axios": "^0.21",
