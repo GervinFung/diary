@@ -80,7 +80,7 @@
     @if (count($diaries) > 4)
         <div style="height:calc({{ count($diaries) - 4 }} * 100px + 20px);">
         @else
-            <div style="height: 60px;">
+            <div style="height: 30px;">
     @endif
     </div>
     <x-footer />
