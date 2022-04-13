@@ -12,7 +12,7 @@
                         <div class="front">
                             <div class="cover">
                                 <div class="num-up">{{ $journal->title }}</div>
-                                <div class="author">{{ $journal->year }}</div>
+                                <div class="year">{{ $journal->year }}</div>
                             </div>
                         </div>
                     </a>

@@ -11,7 +11,6 @@ class Journal extends Model
 {
     use HasFactory;
 
-    // LSW - START
     public $table = 'journal';
     protected $fillable = ['title', 'year', 'user_id'];
 
@@ -22,7 +21,6 @@ class Journal extends Model
 
     function getUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
-    // LSW - END
 }
