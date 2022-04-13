@@ -68,9 +68,11 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-success btn-sm">Save</button>
-                                </div>
+                                @can('update', $diary)
+                                    <div class="form-group text-center">
+                                        <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                    </div>
+                                @endcan
                             </div>
                         </form>
                     </div>
