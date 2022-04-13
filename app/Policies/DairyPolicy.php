@@ -40,9 +40,9 @@ class DairyPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(User $user, Diary $diary)
     {
-        return $user->id===$dairy->user_id;
+        //
     }
 
     /**
@@ -54,7 +54,8 @@ class DairyPolicy
      */
     public function update(User $user, Dairy $dairy)
     {
-        return $user->id===$dairy->user_id;
+        $journal = Journal::find($dairy->journal_id);
+        return $user->id===$journal->user_id;
     }
 
     /**
@@ -67,7 +68,7 @@ class DairyPolicy
     public function delete(User $user, Dairy $dairy)
     {
         $journal = Journal::find($dairy->journal_id);
-        return $user->id===$journal->id;
+        return $user->id===$journal->user_id;
     }
 
     /**
