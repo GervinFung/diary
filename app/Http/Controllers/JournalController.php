@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Journal;
 use App\Models\Diary;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,10 @@ class JournalController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            $journals = Journal::orderBy('year', 'desc')->get();
+            $publicUserId = User::where('type', 'Public')->pluck('id');
+            $journals = Journal::whereIn('user_id',['2','3'])
+                ->orderBy('year', 'desc')
+                ->paginate(12);
             return view('journal/publicJournals', ['journals' => $journals]);
         }
         return redirect('sign-in');
@@ -38,7 +42,9 @@ class JournalController extends Controller
     public function showMyJournals()
     {
         if (Auth::check()) {
-            $journals = Journal::orderBy('year', 'desc')->get();
+            $journals = Journal::where('user_id', Auth::user()->id)
+                ->orderBy('year', 'desc')
+                ->paginate(12);
             return view('journal/myJournals', ['journals' => $journals]);
         }
         return redirect('sign-in');

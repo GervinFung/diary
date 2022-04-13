@@ -20,4 +20,12 @@
             @endcan
         @endforeach
     </div>
+    <div class="page-number-container">
+        {{ $journals->links() }}
+    </div>
+    @can('isPublic')
+        <div class="add-button-container">
+            <a href="create-journal"><i class="fa fa-plus"></i></a>
+        </div>
+    @endcan
 @endsection

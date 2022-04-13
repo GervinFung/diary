@@ -20,6 +20,9 @@
             @endcan
         @endforeach
     </div>
+    <div class="page-number-container">
+        {{ $journals->links() }}
+    </div>
     <div class="add-button-container">
         <a href="create-journal"><i class="fa fa-plus"></i></a>
     </div>
