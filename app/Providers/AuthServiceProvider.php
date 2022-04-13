@@ -5,7 +5,9 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use App\Policies\JournalPolicy;
+use App\Policies\DiaryPolicy;
 use App\Models\Journal;
+use App\Models\Diary;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         Journal::class => JournalPolicy::class,
+        Diary::class => DiaryPolicy::class,
     ];
 
     /**

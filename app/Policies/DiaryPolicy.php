@@ -3,11 +3,11 @@
 namespace App\Policies;
 
 use App\Models\Journal;
-use App\Models\Dairy;
+use App\Models\Diary;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class DairyPolicy
+class DiaryPolicy
 {
     use HandlesAuthorization;
 
@@ -26,12 +26,12 @@ class DairyPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Dairy  $dairy
+     * @param  \App\Models\Diary  $diary
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Dairy $dairy, $journalId)
+    public function view(User $user, Diary $diary, $journalId)
     {
-        return $user->id===$dairy->user_id and $journalId==$dairy->journal_id;
+        return $user->id===$diary->user_id and $journalId==$diary->journal_id;
     }
 
     /**
@@ -49,12 +49,12 @@ class DairyPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Dairy  $dairy
+     * @param  \App\Models\Diary  $diary
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Dairy $dairy)
+    public function update(User $user, Diary $diary)
     {
-        $journal = Journal::find($dairy->journal_id);
+        $journal = Journal::find($diary->journal_id);
         return $user->id===$journal->user_id;
     }
 
@@ -62,12 +62,12 @@ class DairyPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Dairy  $dairy
+     * @param  \App\Models\Diary  $diary
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Dairy $dairy)
+    public function delete(User $user, Diary $diary)
     {
-        $journal = Journal::find($dairy->journal_id);
+        $journal = Journal::find($diary->journal_id);
         return $user->id===$journal->user_id;
     }
 
@@ -75,10 +75,10 @@ class DairyPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Dairy  $dairy
+     * @param  \App\Models\Diary  $diary
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Dairy $dairy)
+    public function restore(User $user, Diary $diary)
     {
         //
     }
@@ -87,10 +87,10 @@ class DairyPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Dairy  $dairy
+     * @param  \App\Models\Diary  $diary
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Dairy $dairy)
+    public function forceDelete(User $user, Diary $diary)
     {
         //
     }
