@@ -31,7 +31,7 @@ class JournalController extends Controller
     {
         if (Auth::check()) {
             $publicUserId = User::where('type', 'Public')->pluck('id');
-            $journals = Journal::whereIn('user_id',['2','3'])
+            $journals = Journal::whereIn('user_id', ['2', '3'])
                 ->orderBy('year', 'desc')
                 ->paginate(12);
             return view('journal/publicJournals', ['journals' => $journals]);

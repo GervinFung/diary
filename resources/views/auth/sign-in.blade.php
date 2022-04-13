@@ -10,8 +10,19 @@
                 </h2>
             </div>
 
+            @if (Session::has('signup_successful'))
+                <span class="error-msg" role="alert">
+                    <strong>*{{ Session::get('signup_successful') }}*</strong>
+                </span>
+            @endif
+
             <div>
-                <form method="POST" action="{{ route('login') }}">
+                @if (Session::has('signin_fail'))
+                    <span class="error-msg" role="alert">
+                        <strong>*{{ Session::get('signin_fail') }}*</strong>
+                    </span>
+                @endif
+                <form method="POST" action="api/sign-in">
                     @csrf
                     <div>
                         <label for="email">{{ __('Email Address') }}</label>
@@ -21,8 +32,8 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="email" type="email" name="email" value="{{ old('email') }}" required
-                                autocomplete="email" autofocus placeholder="Email">
+                            <input id="email" type="text" name="email" value="{{ old('email') }}" autocomplete="email"
+                                autofocus placeholder="Email">
                         </div>
                     </div>
 
@@ -34,7 +45,7 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="password" type="password" name="password" required autocomplete="current-password"
+                            <input id="password" type="password" name="password" autocomplete="current-password"
                                 placeholder="Password">
 
                         </div>

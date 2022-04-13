@@ -7,12 +7,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New diary</title>
-    <link rel="stylesheet" href="{{ URL::asset('scss/diary/editor.css') }}">
-    <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('scss/diary/editor.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/header.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('css/footer.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('css/diary.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" />
 </head>
 
 <body class="antialiased">
@@ -28,7 +28,7 @@
                         <form method="POST" action="/api/diary" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group upper-group">
-                            <input type="hidden" name="journal_id" value="{{ $journal_id }}" />
+                                <input type="hidden" name="journal_id" value="{{ $journal_id }}" />
                                 <div>
                                     <label><strong>Date</strong></label>
                                     <input type="date" name='date' class="form-control" />
@@ -45,11 +45,11 @@
                             </div>
                             <div class='btn-container-save-preview'>
                                 <div class="go-to-journal form-group text-center">
-                                    <div class="go-to-journal btn btn-success btn-sm">
-                                        <a href="/journal/{{ $journal_id }}">
+                                    <a href="/journal/{{ $journal_id }}">
+                                        <div class="go-to-journal btn btn-success btn-sm">
                                             Go to Journal
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="form-group text-center">
                                     <button type="submit" class="btn btn-success btn-sm">Save</button>

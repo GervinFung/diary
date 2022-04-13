@@ -15,7 +15,7 @@
             </div>
 
             <div>
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="api/sign-up">
                     @csrf
                     <div>
                         <label for="name">{{ __('Name') }}</label>
@@ -25,8 +25,8 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="name" type="text" name="name" value="{{ old('name') }}" required
-                                autocomplete="name" autofocus placeholder="Full Name">
+                            <input id="name" type="text" name="name" value="{{ old('name') }}" autocomplete="name"
+                                autofocus placeholder="Full Name">
                         </div>
                     </div>
 
@@ -38,8 +38,8 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="email" type="email" name="email" value="{{ old('email') }}" required
-                                autocomplete="email" placeholder="Email">
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email"
+                                placeholder="Email">
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="password" type="password" name="password" required autocomplete="new-password"
+                            <input id="password" type="password" name="password" autocomplete="new-password"
                                 placeholder="Password">
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <label for="password-confirm">{{ __('Confirm Password') }}</label>
                         <div>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                                required autocomplete="new-password" placeholder="Confirm Password">
+                                autocomplete="new-password" placeholder="Confirm Password">
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                             </span>
                         @enderror
                         <div>
-                            <select class="user-type-selection" id="type" name="type" value="{{ old('type') }}" required
+                            <select class="user-type-selection" id="type" name="type" value="{{ old('type') }}"
                                 autocomplete="type">
                                 <option value="" disabled selected>--Select User Type--</option>
                                 <option value="Public">Public</option>
