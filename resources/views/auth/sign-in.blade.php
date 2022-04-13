@@ -32,8 +32,8 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="email" type="text" name="email" value="{{ old('email') }}"
-                                autocomplete="email" autofocus placeholder="Email">
+                            <input id="email" type="text" name="email" value="{{ old('email') }}" autocomplete="email"
+                                autofocus placeholder="Email">
                         </div>
                     </div>
 

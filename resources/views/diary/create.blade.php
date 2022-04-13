@@ -28,7 +28,7 @@
                         <form method="POST" action="/api/diary" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group upper-group">
-                            <input type="hidden" name="journal_id" value="{{ $journal_id }}" />
+                                <input type="hidden" name="journal_id" value="{{ $journal_id }}" />
                                 <div>
                                     <label><strong>Date</strong></label>
                                     <input type="date" name='date' class="form-control" />
