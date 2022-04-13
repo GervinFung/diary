@@ -8,24 +8,24 @@
         <div class="menu-container">
             <ul class="menu">
                 <li class="menu-item">
-                    <a class="menu-link" href="/">Home</a>
+                    <a class="menu-link {{ (request()->is('/')) ? 'active' : '' }}" href="/">Home</a>
                 </li>
                 @auth
                     <li class="menu-item">
-                        <a class="menu-link" href="/public-journals">Public Journals</a>
+                        <a class="menu-link {{ (request()->is('public-journals')) ? 'active' : '' }}" href="/public-journals">Public Journals</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-link" href="/my-journals">My Journals</a>
+                        <a class="menu-link {{ (request()->is('my-journals')) ? 'active' : '' }}" href="/my-journals">My Journals</a>
                     </li>
                     <li class="menu-item">
                         <a class="menu-link" href="/sign-out">Sign out</a>
                     </li>
                 @else
                     <li class="menu-item">
-                        <a class="menu-link" href="/sign-in">Sign in</a>
+                        <a class="menu-link {{ (request()->is('sign-in')) ? 'active' : '' }}" href="/sign-in">Sign in</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-link" href="/sign-up">Sign up</a>
+                        <a class="menu-link {{ (request()->is('sign-up')) ? 'active' : '' }}" href="/sign-up">Sign up</a>
                     </li>
                 @endauth
             </ul>
@@ -38,24 +38,24 @@
             </div>
             <ul class="burger-menu hidden" name="burger_menu">
                 <li class="burger-menu-item">
-                    <a class="burger-menu-link" href="/">Home</a>
+                    <a class="burger-menu-link {{ (request()->is('/')) ? 'active' : '' }}" href="/">Home</a>
                 </li>
                 @auth
                     <li class="burger-menu-item">
-                        <a class="burger-menu-link" href="/public-journals">Public Journals</a>
+                        <a class="burger-menu-link {{ (request()->is('public-journals')) ? 'active' : '' }}" href="/public-journals">Public Journals</a>
                     </li>
                     <li class="burger-menu-item">
-                        <a class="burger-menu-link" href="/my-journals">My Journals</a>
+                        <a class="burger-menu-link {{ (request()->is('my-journals')) ? 'active' : '' }}" href="/my-journals">My Journals</a>
                     </li>
                     <li class="burger-menu-item">
                         <a class="burger-menu-link" href="/sign-out">Sign out</a>
                     </li>
                 @else
                     <li class="burger-menu-item">
-                        <a class="burger-menu-link" href="/sign-in">Sign in</a>
+                        <a class="burger-menu-link {{ (request()->is('sign-in')) ? 'active' : '' }}" href="/sign-in">Sign in</a>
                     </li>
                     <li class="burger-menu-item">
-                        <a class="burger-menu-link" href="/sign-up">Sign up</a>
+                        <a class="burger-menu-link {{ (request()->is('sign-up')) ? 'active' : '' }}" href="/sign-up">Sign up</a>
                     </li>
                 @endauth
             </ul>

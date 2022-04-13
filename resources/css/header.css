@@ -39,6 +39,10 @@
     text-decoration: none;
 }
 
+.active {
+    color: #38b6ff;
+}
+
 .burger-menu-container {
     display: none;
     position: relative;
