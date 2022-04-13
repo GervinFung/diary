@@ -1,3 +1,7 @@
+<!-- the book effect in home page is inspired by Nayara Alves,
+https://codepen.io/diemoritat/pen/LKROYZ
+-->
+
 <div class="cover">
     <div class="book">
         <label for="page-1" class="book__page book__page--1">
@@ -38,10 +42,8 @@
             </div>
         </label>
 
-        <!-- Resets the page -->
         <input type="radio" name="page" id="page-1" />
 
-        <!-- Goes to the second page -->
         <input type="radio" name="page" id="page-2" />
         <label class="book__page book__page--2">
             <div class="book__page-front">

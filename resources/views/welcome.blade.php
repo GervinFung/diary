@@ -27,6 +27,8 @@
     <div class="main-container">
         <div class="section-1">
             <div class="slogan-container">
+                <!-- slogan typing effect is inspired by Marko,
+                https://codepen.io/denic/pen/GRoOxbM -->
                 <div class="slogan-text">
                     SANCTUARY FOR YOUR MIND & SOUL
                 </div>
@@ -58,3 +60,5 @@
 </body>
 
 </html>
+
+<!-- content in the home screen is inspired by https://journey.cloud -->

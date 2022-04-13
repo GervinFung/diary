@@ -25,3 +25,6 @@
 @endif
 {{ $diaries->links() }}
 </div>
+
+<!-- the design of diary list is inspired by Marc Malignan,
+ https://codepen.io/MarcMalignan/pen/QbaXGg -->
