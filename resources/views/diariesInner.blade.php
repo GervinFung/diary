@@ -19,9 +19,9 @@
     @endforeach
 </div>
 @if (count($diaries) > 4)
-<div class="page-number-container" style="top:calc({{count($diaries) - 4}} * 100px);">
-@else
-<div class="page-number-container" style="top: 20px;">
+    <div class="page-number-container" style="top:calc({{ count($diaries) - 4 }} * 100px);">
+    @else
+        <div class="page-number-container" style="top: 20px;">
 @endif
-    {{ $diaries->links() }}
+{{ $diaries->links() }}
 </div>

@@ -13,23 +13,11 @@ class DiaryFactory extends Factory
      */
     public function definition()
     {
-        $year = rand(2010, 2022);
-        $month = rand(1, 12);
-        $daylimit = 31;
-        if ($month == 4 or $month == 6 or $month == 9 or $month == 11) {
-            $daylimit = 30;
-        } elseif ($month == 2) {
-            if ($year % 4 == 0) {
-                $daylimit = 29;
-            } else {
-                $daylimit = 28;
-            }
-        } 
-        $day = rand(1,$daylimit);
-
         return [
-            'journal_id' => rand(1,50),
-            'date' => Carbon::parse($year.'-'.$month.'-'.$day),
+            'journal_id' => rand(1, 50),
+            'date' => $this->faker
+                ->dateTimeBetween('-10 years', 'now')
+                ->format('Y-m-d'),
             'content' => '<p>' . $this->faker->text(500) . '</p>',
         ];
     }
