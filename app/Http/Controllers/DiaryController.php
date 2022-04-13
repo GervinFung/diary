@@ -40,7 +40,7 @@ class DiaryController extends Controller
 
     public function create(Request $request)
     {
-        $acceptedYear = Journal::find($request->journal_id)->value('year');
+        $acceptedYear = Journal::find($request->journal_id)->year;
         $this->validator($request->all(), $acceptedYear)->validate();
         $diary = $request->all();
         return redirect('diary/' . Diary::create($diary)->id);

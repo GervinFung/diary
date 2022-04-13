@@ -40,9 +40,9 @@ class JournalPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create(User $user, Journal $journal)
     {
-        return true;
+        return $user->id===$journal->user_id;
     }
 
     /**

@@ -24,7 +24,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::view('journal/create-diary', 'diary.create');
+Route::get('journal/{journal_id}/create-diary', function ($journal_id) {
+    return view('diary.create', ['journal_id'=>$journal_id]);
+});
 Route::view('create-journal', 'journal.create');
 Route::get('sign-in', [LoginController::class, 'showLoginForm']);
 Route::get('sign-up', [RegisterController::class, 'showRegisterForm']);

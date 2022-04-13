@@ -74,9 +74,11 @@
     </div>
     </div>
     @include('diariesInner')
-    <div class="add-button-container">
-        <a href="create-diary"><i class="fa fa-plus"></i></a>
-    </div>
+    @can('create', $journal)
+        <div class="add-button-container">
+            <a href="{{ $journal['id'] }}/create-diary"><i class="fa fa-plus"></i></a>
+        </div>
+    @endcan
     @if (count($diaries) > 4)
         <div style="height:calc({{ count($diaries) - 4 }} * 100px + 20px);">
         @else
