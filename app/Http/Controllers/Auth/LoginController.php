@@ -54,7 +54,7 @@ class LoginController extends Controller
         ]);
 
         if (
-            Auth::guard('user')->attempt(
+            Auth::guard('web')->attempt(
                 [
                     'email' => trim($request->email),
                     'password' => $request->password,
@@ -62,10 +62,8 @@ class LoginController extends Controller
                 $request->get('remember')
             )
         ) {
-            // some code
-            return redirect('/');
         }
-
+        $request->session()->flash('signin_fail', 'Incorrect email/password');
         return back()->withInput($request->only('email', 'remember'));
     }
 }

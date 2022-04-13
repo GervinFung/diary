@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
 <div class="header">
     <a href="/" class="website-logo">
         <img src="{{ URL('storage/images/journivia-logo.png') }}" width="90px" height="90px">

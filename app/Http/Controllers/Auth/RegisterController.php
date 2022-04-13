@@ -110,6 +110,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
             'type' => $request->type,
         ]);
+        $request->session()->flash('signup_successful', 'Sign up successful');
         return redirect('/sign-in');
     }
 }

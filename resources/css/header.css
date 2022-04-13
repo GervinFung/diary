@@ -30,12 +30,13 @@
     height: 100%;
 }
 
-.menu-item:hover {
-    color: #38b6ff;
-}
-
 .menu-link {
     padding: 10px 30px;
+}
+
+.menu-link:hover {
+    color: #38b6ff;
+    text-decoration: none;
 }
 
 .burger-menu-container {

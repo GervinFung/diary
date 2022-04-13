@@ -22,15 +22,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
+Route::get('sign-in', [LoginController::class, 'showLoginForm']);
+Route::get('sign-up', [RegisterController::class, 'showRegisterForm']);
+Route::get('sign-out', [LoginController::class, 'logout']);
 Route::get('journal/{journal_id}/create-diary', function ($journal_id) {
     return view('diary.create', ['journal_id'=>$journal_id]);
 });
 Route::view('create-journal', 'journal.create');
-Route::get('sign-in', [LoginController::class, 'showLoginForm']);
-Route::get('sign-up', [RegisterController::class, 'showRegisterForm']);
-Route::get('sign-out', [LoginController::class, 'logout']);
 Route::get('public-journals', [JournalController::class, 'index']);
 Route::get('my-journals', [JournalController::class, 'showMyJournals']);
 Route::get('journal/{journal_id}', [JournalController::class, 'showOne']);
