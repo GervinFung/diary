@@ -8,7 +8,7 @@
         "hot": "yarn dev watch --hot",
         "prod": "yarn dev --production",
         "start": "concurrently \"php artisan serve\" \"yarn watch\"",
-        "format": "yarn prettier --write resources/**/*.blade.php resources/**/**/*.blade.php resources/css/*.css resources/scss/**/*.scss resources/js/*.js",
+        "format": "yarn prettier --write resources/**/*.blade.php resources/**/**/*.blade.php resources/css/*.css resources/scss/**/*.scss resources/js/*.js routes/*.php app/Http/Controllers/*.php app/Models/*.php",
         "seed": "php artisan db:seed",
         "storage-link": "php artisan storage:link",
         "postinstall": "composer install && yarn storage-link",

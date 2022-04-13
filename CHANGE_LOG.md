@@ -1,3 +1,7 @@
+## (12 April 2022)
+
+-   Enforce stronger password
+
 ## (11 April 2022)
 
 -   Added style for auth page

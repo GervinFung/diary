@@ -42,7 +42,8 @@
                                 <input type="hidden" name="journal_id" value="{{ $diary->journal_id }}" />
                                 <div>
                                     <label><strong>Date</strong></label>
-                                    <input type="date" name='date' value='{{ $diary->date }}' class="form-control"/>
+                                    <input type="date" name='date' value='{{ $diary->date }}'
+                                        class="form-control" />
                                     <span class="error-msg">
                                         @error('date')
                                             {{ $message }}
