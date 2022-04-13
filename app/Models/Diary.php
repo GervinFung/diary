@@ -10,7 +10,6 @@ class Diary extends Model
 {
     use HasFactory;
 
-    // LSW - START
     public $table = 'diary';
     protected $fillable = ['date', 'content', 'journal_id'];
 
@@ -18,5 +17,4 @@ class Diary extends Model
     {
         $this->belongsTo(Journal::class);
     }
-    // LSW - END
 }

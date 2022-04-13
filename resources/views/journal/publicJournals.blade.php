@@ -12,7 +12,8 @@
                         <div class="front">
                             <div class="cover">
                                 <div class="num-up">{{ $journal->title }}</div>
-                                <div class="author">{{ $journal->year }}</div>
+                                <div class="author">{{ $journal->getUser()->get()[0]->name }}</div>
+                                <div class="year">- {{ $journal->year }}</div>
                             </div>
                         </div>
                     </a>
@@ -27,5 +28,5 @@
         <div class="add-button-container">
             <a href="create-journal"><i class="fa fa-plus"></i></a>
         </div>
-    @endcan
+    @endcan}
 @endsection
