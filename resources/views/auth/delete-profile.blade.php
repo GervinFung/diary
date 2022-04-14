@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    Update Profile
+                    Delete Profile
                 </h2>
                 <div>Are you sure about this? There is no going back after this</div>
             </div>
