@@ -19,11 +19,11 @@
                     <div class="dropdown">
                         <button class="drop-btn">{{ Auth::user()->name }}</button>
                         <div class="dropdown-content">
-                            <a class="menu-link" href="/my-journals">My
+                            <a class="menu-link {{ request()->is('my-journals') ? 'active' : '' }}" href="/my-journals">My
                                 Journals</a>
-                            <a class="menu-link" href="/user/update">Update Profile</a>
+                            <a class="menu-link {{ request()->is('user/update') ? 'active' : '' }}" href="/user/update">Update Profile</a>
                             <a class="menu-link" href="/api/user/sign-out">Sign out</a>
-                            <a class="menu-link" href="/user/delete">Delete Account</a>
+                            <a class="menu-link {{ request()->is('user/delete') ? 'active' : '' }}" href="/user/delete">Delete Account</a>
                         </div>
                     </div>
                 @else
@@ -56,13 +56,13 @@
                             href="/my-journals">My Journals</a>
                     </li>
                     <li class="burger-menu-item">
-                        <a class="burger-menu-link" href="/user/update">Update Profile</a>
+                        <a class="burger-menu-link {{ request()->is('user/update') ? 'active' : '' }}" href="/user/update">Update Profile</a>
                     </li>
                     <li class="burger-menu-item">
                         <a class="burger-menu-link" href="/api/user/sign-out">Sign out</a>
                     </li>
                     <li class="burger-menu-item">
-                        <a class="burger-menu-link" href="/user/delete">Delete Account</a>
+                        <a class="burger-menu-link {{ request()->is('user/delete') ? 'active' : '' }}" href="/user/delete">Delete Account</a>
                     </li>
                 @else
                     <li class="burger-menu-item">
