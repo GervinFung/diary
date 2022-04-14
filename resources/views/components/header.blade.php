@@ -56,7 +56,13 @@
                             href="/my-journals">My Journals</a>
                     </li>
                     <li class="burger-menu-item">
+                        <a class="burger-menu-link" href="/user/update">Update Profile</a>
+                    </li>
+                    <li class="burger-menu-item">
                         <a class="burger-menu-link" href="/api/user/sign-out">Sign out</a>
+                    </li>
+                    <li class="burger-menu-item">
+                        <a class="burger-menu-link" href="/user/delete">Delete Account</a>
                     </li>
                 @else
                     <li class="burger-menu-item">

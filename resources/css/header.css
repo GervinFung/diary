@@ -94,13 +94,13 @@
     height: 100%;
 }
 
-.burger-menu-item:hover {
-    color: #38b6ff;
-}
-
 .burger-menu-link {
     padding: 15px;
     line-height: 30px;
+}
+
+.burger-menu-link:hover {
+    color: #38b6ff;
 }
 
 .hidden {
