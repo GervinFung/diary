@@ -26,7 +26,7 @@
                         @enderror
                         <div>
                             <input id="name" type="text" name="name" value="{{ old('name') }}" autocomplete="name"
-                                required autofocus placeholder="Full Name">
+                                autofocus placeholder="Full Name">
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
                         @enderror
                         <div>
                             <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email"
-                                required placeholder="Email">
+                                placeholder="Email">
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="password" type="password" name="password" autocomplete="new-password" required
+                            <input id="password" type="password" name="password" autocomplete="new-password"
                                 placeholder="Password">
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <label for="password-confirm">{{ __('Confirm Password') }}</label>
                         <div>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                                required autocomplete="new-password" placeholder="Confirm Password">
+                                autocomplete="new-password" placeholder="Confirm Password">
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                             </span>
                         @enderror
                         <div>
-                            <select class="user-type-selection" id="type" name="type" value="{{ old('type') }}" required
+                            <select class="user-type-selection" id="type" name="type" value="{{ old('type') }}"
                                 autocomplete="type">
                                 <option value="" disabled selected>--Select User Type--</option>
                                 <option value="Public">Public</option>

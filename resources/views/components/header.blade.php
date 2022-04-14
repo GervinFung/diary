@@ -1,5 +1,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="{{ URL::asset('scss/auth/user-dropdown.css') }}" rel="stylesheet">
+
 <div class="header">
     <a href="/" class="website-logo">
         <img src="{{ URL('storage/images/journivia-logo.png') }}" width="90px" height="90px">
@@ -27,12 +28,10 @@
                     </div>
                 @else
                     <li class="menu-item">
-                        <a class="menu-link {{ request()->is('sign-in') ? 'active' : '' }}" href="/user/sign-in">Sign
-                            in</a>
+                        <a class="menu-link {{ request()->is('sign-in') ? 'active' : '' }}" href="/user/sign-in">Sign in</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-link {{ request()->is('sign-up') ? 'active' : '' }}" href="/user/sign-up">Sign
-                            up</a>
+                        <a class="menu-link {{ request()->is('sign-up') ? 'active' : '' }}" href="/user/sign-up">Sign up</a>
                     </li>
                 @endauth
             </ul>
@@ -62,13 +61,11 @@
                 @else
                     <li class="burger-menu-item">
                         <a class="burger-menu-link {{ request()->is('sign-in') ? 'active' : '' }}"
-                            href="user/sign-in">Sign
-                            in</a>
+                            href="user/sign-in">Sign in</a>
                     </li>
                     <li class="burger-menu-item">
                         <a class="burger-menu-link {{ request()->is('sign-up') ? 'active' : '' }}"
-                            href="/user/sign-up">Sign
-                            up</a>
+                            href="/user/sign-up">Sign up</a>
                     </li>
                 @endauth
             </ul>
