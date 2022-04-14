@@ -15,11 +15,7 @@
             </div>
 
             <div>
-<<<<<<< HEAD
-                <form method="POST" action="api/sign-up">
-=======
                 <form method="POST" action="/api/user/sign-up">
->>>>>>> main
                     @csrf
                     <div>
                         <label for="name">{{ __('Name') }}</label>
@@ -30,11 +26,7 @@
                         @enderror
                         <div>
                             <input id="name" type="text" name="name" value="{{ old('name') }}" autocomplete="name"
-<<<<<<< HEAD
                                 autofocus placeholder="Full Name">
-=======
-                                required autofocus placeholder="Full Name">
->>>>>>> main
                         </div>
                     </div>
 
@@ -47,11 +39,7 @@
                         @enderror
                         <div>
                             <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email"
-<<<<<<< HEAD
                                 placeholder="Email">
-=======
-                                required placeholder="Email">
->>>>>>> main
                         </div>
                     </div>
 
@@ -63,11 +51,7 @@
                             </span>
                         @enderror
                         <div>
-<<<<<<< HEAD
                             <input id="password" type="password" name="password" autocomplete="new-password"
-=======
-                            <input id="password" type="password" name="password" autocomplete="new-password" required
->>>>>>> main
                                 placeholder="Password">
                         </div>
                     </div>
