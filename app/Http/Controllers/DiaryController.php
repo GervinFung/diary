@@ -6,7 +6,6 @@ use App\Models\Diary;
 use App\Models\Journal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\JournalController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,17 @@ use App\Http\Controllers\JournalController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->get(
+    '/user',
+    fn(Request $request) => $request->user()
+);
 
-// Auth
-Route::post('/sign-in', [LoginController::class, 'signIn']);
-Route::post('/sign-up', [RegisterController::class, 'createUser']);
+// user
+Route::post('/user/sign-in', [LoginController::class, 'signIn']);
+Route::post('/user/sign-up', [RegisterController::class, 'createUser']);
+Route::get('/user/sign-out', [LoginController::class, 'logout']);
+Route::put('/user/update', [UserController::class, 'edit']);
+Route::delete('/user/delete', [UserController::class, 'destroy']);
 
 // Journal
 Route::post('/journal', [JournalController::class, 'create']);

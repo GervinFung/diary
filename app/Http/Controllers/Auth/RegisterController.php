@@ -51,7 +51,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:5', 'max:255'],
             'email' => [
                 'required',
                 'string',
@@ -111,6 +111,6 @@ class RegisterController extends Controller
             'type' => $request->type,
         ]);
         $request->session()->flash('signup_successful', 'Sign up successful');
-        return redirect('/sign-in');
+        return redirect('user/sign-in');
     }
 }
