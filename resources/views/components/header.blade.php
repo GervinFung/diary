@@ -21,17 +21,21 @@
                         <div class="dropdown-content">
                             <a class="menu-link {{ request()->is('my-journals') ? 'active' : '' }}" href="/my-journals">My
                                 Journals</a>
-                            <a class="menu-link {{ request()->is('user/update') ? 'active' : '' }}" href="/user/update">Update Profile</a>
+                            <a class="menu-link {{ request()->is('user/update') ? 'active' : '' }}"
+                                href="/user/update">Update Profile</a>
                             <a class="menu-link" href="/api/user/sign-out">Sign out</a>
-                            <a class="menu-link {{ request()->is('user/delete') ? 'active' : '' }}" href="/user/delete">Delete Account</a>
+                            <a class="menu-link {{ request()->is('user/delete') ? 'active' : '' }}"
+                                href="/user/delete">Delete Account</a>
                         </div>
                     </div>
                 @else
                     <li class="menu-item">
-                        <a class="menu-link {{ request()->is('sign-in') ? 'active' : '' }}" href="/user/sign-in">Sign in</a>
+                        <a class="menu-link {{ request()->is('sign-in') ? 'active' : '' }}" href="/user/sign-in">Sign
+                            in</a>
                     </li>
                     <li class="menu-item">
-                        <a class="menu-link {{ request()->is('sign-up') ? 'active' : '' }}" href="/user/sign-up">Sign up</a>
+                        <a class="menu-link {{ request()->is('sign-up') ? 'active' : '' }}" href="/user/sign-up">Sign
+                            up</a>
                     </li>
                 @endauth
             </ul>
@@ -56,13 +60,23 @@
                             href="/my-journals">My Journals</a>
                     </li>
                     <li class="burger-menu-item">
+<<<<<<< HEAD
                         <a class="burger-menu-link {{ request()->is('user/update') ? 'active' : '' }}" href="/user/update">Update Profile</a>
+=======
+                        <a class="burger-menu-link {{ request()->is('user/update') ? 'active' : '' }}"
+                            href="/user/update">Update Profile</a>
+>>>>>>> main
                     </li>
                     <li class="burger-menu-item">
                         <a class="burger-menu-link" href="/api/user/sign-out">Sign out</a>
                     </li>
                     <li class="burger-menu-item">
+<<<<<<< HEAD
                         <a class="burger-menu-link {{ request()->is('user/delete') ? 'active' : '' }}" href="/user/delete">Delete Account</a>
+=======
+                        <a class="burger-menu-link {{ request()->is('user/delete') ? 'active' : '' }}"
+                            href="/user/delete">Delete Account</a>
+>>>>>>> main
                     </li>
                 @else
                     <li class="burger-menu-item">
