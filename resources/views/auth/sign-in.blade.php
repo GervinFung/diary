@@ -22,7 +22,7 @@
                         <strong>*{{ Session::get('signin_fail') }}*</strong>
                     </span>
                 @endif
-                <form method="POST" action="api/sign-in">
+                <form method="POST" action="/api/user/sign-in">
                     @csrf
                     <div>
                         <label for="email">{{ __('Email Address') }}</label>
@@ -70,7 +70,7 @@
                     <div class="alternative-solution">Don't have an account?</div>
 
                     <div class="btn-container">
-                        <a href="/sign-up" class="btn sign-up-btn">
+                        <a href="/user/sign-up" class="btn sign-up-btn">
                             Create an account
                         </a>
                     </div>

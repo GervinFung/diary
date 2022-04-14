@@ -31,7 +31,8 @@ class DiaryPolicy
      */
     public function view(User $user, Diary $diary, $journalId)
     {
-        return $user->id===$diary->user_id and $journalId==$diary->journal_id;
+        return $user->id === $diary->user_id and
+            $journalId == $diary->journal_id;
     }
 
     /**
@@ -55,7 +56,7 @@ class DiaryPolicy
     public function update(User $user, Diary $diary)
     {
         $journal = Journal::find($diary->journal_id);
-        return $user->id===$journal->user_id;
+        return $user->id === $journal->user_id;
     }
 
     /**
@@ -68,7 +69,7 @@ class DiaryPolicy
     public function delete(User $user, Diary $diary)
     {
         $journal = Journal::find($diary->journal_id);
-        return $user->id===$journal->user_id;
+        return $user->id === $journal->user_id;
     }
 
     /**

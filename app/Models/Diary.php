@@ -15,6 +15,6 @@ class Diary extends Model
 
     function getJournal()
     {
-        $this->belongsTo(Journal::class);
+        return $this->belongsTo(Journal::class);
     }
 }

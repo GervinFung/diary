@@ -4,6 +4,14 @@
 <link href="{{ URL::asset('css/journals.css') }}" rel="stylesheet">
 
 @section('content')
+    @if (empty($journal))
+        <div class="no-journal">
+            <h1>
+                Ops! It appears that you have not written any personal journal yet
+            </h1>
+            <h3>To get started, click the yellow icon at the bottom right</h3>
+        </div>
+    @endif
     <div class="journals-container">
         @foreach ($journals as $journal)
             @can('view', $journal)
