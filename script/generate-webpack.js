@@ -22,20 +22,26 @@ const mapResourceToPublic = (file, type) =>
 
 fs.writeFile(
     'webpack.mix.js',
-    `require('laravel-mix').${getAllPaths('resources')
-        .map((file) => {
-            if (file.includes('scss')) {
-                return mapResourceToPublic(file, 'sass');
-            }
-            if (file.includes('css')) {
-                return mapResourceToPublic(file, 'postCss');
-            }
-            if (file.includes('js')) {
-                return mapResourceToPublic(file, 'js');
-            }
-        })
-        .sort((a, b) => a.localeCompare(b))
-        .join('.\n')}`,
+    `
+      const { exec } = require('child_process');
+      const mix = require('laravel-mix');
+
+      mix.before(() => exec('node script/clear-compiled.js')).${getAllPaths(
+          'resources'
+      )
+          .map((file) => {
+              if (file.includes('scss')) {
+                  return mapResourceToPublic(file, 'sass');
+              }
+              if (file.includes('css')) {
+                  return mapResourceToPublic(file, 'postCss');
+              }
+              if (file.includes('js')) {
+                  return mapResourceToPublic(file, 'js');
+              }
+          })
+          .sort((a, b) => a.localeCompare(b))
+          .join('.\n')}`,
     (err) =>
         err ? console.error(err) : console.log('webpack-mix.js generated')
 );

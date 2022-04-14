@@ -1,3 +1,9 @@
+## (14 April 2022)
+
+-   Added user Update/Delete
+-   Added return keyword for Diary model
+-   Improved webpack generation by removing previously generated folder before generating new one
+
 ## (12 April 2022)
 
 -   Enforce stronger password
