@@ -29,8 +29,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
-        DB::listen(
-            fn($query) => Log::info($query->sql, $query->bindings, $query->time)
-        );
+        DB::listen(function ($query) {
+            return Log::info($query->sql, $query->bindings, $query->time);
+        });
     }
 }
