@@ -11,7 +11,7 @@
             </div>
 
             @if (Session::has('signup_successful'))
-                <span class="error-msg" role="alert">
+                <span class="notification-msg" role="alert">
                     <strong>*{{ Session::get('signup_successful') }}*</strong>
                 </span>
             @endif
