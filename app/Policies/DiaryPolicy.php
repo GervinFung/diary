@@ -31,8 +31,7 @@ class DiaryPolicy
      */
     public function view(User $user, Diary $diary, $journalId)
     {
-        return $user->id === $diary->user_id and
-            $journalId == $diary->journal_id;
+        //
     }
 
     /**
