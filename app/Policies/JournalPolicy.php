@@ -31,7 +31,7 @@ class JournalPolicy
      */
     public function view(User $user, Journal $journal)
     {
-        return $user->id===$journal->user_id;
+        return $user->id === $journal->user_id;
     }
 
     /**
@@ -42,7 +42,7 @@ class JournalPolicy
      */
     public function create(User $user, Journal $journal)
     {
-        return $user->id===$journal->user_id;
+        return $user->id === $journal->user_id;
     }
 
     /**
@@ -54,7 +54,7 @@ class JournalPolicy
      */
     public function update(User $user, Journal $journal)
     {
-        return $user->id===$journal->user_id;
+        return $user->id === $journal->user_id;
     }
 
     /**
@@ -66,7 +66,7 @@ class JournalPolicy
      */
     public function delete(User $user, Journal $journal)
     {
-        return $user->id===$journal->user_id;
+        return $user->id === $journal->user_id;
     }
 
     /**
