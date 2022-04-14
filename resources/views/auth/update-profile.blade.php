@@ -6,17 +6,14 @@
         <div class="card">
             <div class="card-header">
                 <h2>
-                    Welcome to Journivia
+                    Update Profile
                 </h2>
-                <div>
-                    By signing up you agreed to our <a href="#" class="terms-conditions">terms</a> and <a href="#"
-                        class="terms-conditions">conditions</a>
-                </div>
             </div>
 
             <div>
-                <form method="POST" action="/api/user/sign-up">
+                <form method="POST" action="/api/user/update">
                     @csrf
+                    @method('PUT')
                     <div>
                         <label for="name">{{ __('Name') }}</label>
                         @error('name')
@@ -25,8 +22,8 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="name" type="text" name="name" value="{{ old('name') }}" autocomplete="name"
-                                required autofocus placeholder="Full Name">
+                            <input id="name" type="text" name="name" value="{{ $user->name }}" autocomplete="name"
+                                autofocus placeholder="Full Name">
                         </div>
                     </div>
 
@@ -38,62 +35,72 @@
                             </span>
                         @enderror
                         <div>
-                            <input id="email" type="email" name="email" value="{{ old('email') }}" autocomplete="email"
-                                required placeholder="Email">
+                            <input id="email" type="email" name="email" value="{{ $user->email }}" autocomplete="email"
+                                placeholder="Email">
                         </div>
                     </div>
 
                     <div>
-                        <label for="password">{{ __('Password') }}</label>
-                        @error('password')
-                            <span class="error-msg" role="alert">
-                                <strong>*{{ $message }}*</strong>
-                            </span>
-                        @enderror
-                        <div>
-                            <input id="password" type="password" name="password" autocomplete="new-password" required
-                                placeholder="Password">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
-                        <div>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                                required autocomplete="new-password" placeholder="Confirm Password">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="type">{{ __('Type') }}</label>
+                        <label for="type">{{ __('User Type') }}</label>
                         @error('type')
                             <span class="error-msg" role="alert">
                                 <strong>*{{ $message }}*</strong>
                             </span>
                         @enderror
                         <div>
-                            <select class="user-type-selection" id="type" name="type" value="{{ old('type') }}" required
+                            <select class="user-type-selection" id="type" name="type" value="{{ $user->type }}"
                                 autocomplete="type">
-                                <option value="" disabled selected>--Select User Type--</option>
-                                <option value="Public">Public</option>
-                                <option value="Private">Private</option>
+                                <option value="{{ $user->type }}" selected>{{ $user->type }}</option>
+                                <option value="{{ $oppositeType }}">{{ $oppositeType }}</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password">New Password</label>
+                        @error('password')
+                            <span class="error-msg" role="alert">
+                                <strong>*{{ $message }}*</strong>
+                            </span>
+                        @enderror
+                        <div>
+                            <input id="password" type="password" name="password" autocomplete="new-password"
+                                placeholder="Password">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password-confirm">Confirm New Password</label>
+                        <div>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                                autocomplete="new-password" placeholder="Confirm Password">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="identity">Confirm your identity</label>
+                        @error('identity')
+                            <span class="error-msg" role="alert">
+                                <strong>*{{ $message }}*</strong>
+                            </span>
+                        @enderror
+                        <div>
+                            <input id="identity" type="password" name="identity" autocomplete="new-password" required
+                                placeholder="Old Password">
                         </div>
                     </div>
 
                     <div class="btn-container">
                         <button type="submit" class="btn sign-up-btn">
-                            Sign Up
+                            Update
                         </button>
                     </div>
 
                     <hr class="horizontal-line" />
 
-                    <div class="alternative-solution">Already have an account?</div>
-
                     <div class="btn-container">
-                        <a href="/user/sign-in" class="btn sign-in-btn">
-                            Sign in
+                        <a href="/" class="btn sign-in-btn">
+                            Back to Home
                         </a>
                     </div>
                 </form>

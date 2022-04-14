@@ -9,6 +9,10 @@
     perspective: 3000px;
 }
 
+.no-journal {
+    text-align: center;
+}
+
 .journal-container .book {
     position: relative;
     display: block;
