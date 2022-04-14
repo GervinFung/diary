@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn() => view('welcome'));
+Route::get('/', function () {
+    return view('welcome');
+});
 
 //User
 Route::get('user/sign-in', [LoginController::class, 'showLoginForm']);
@@ -27,10 +29,9 @@ Route::get('user/update', [UserController::class, 'update']);
 Route::get('user/delete', [UserController::class, 'delete']);
 
 //Journal
-Route::get(
-    'journal/{journal_id}/create-diary',
-    fn($journal_id) => view('diary.create', ['journal_id' => $journal_id])
-);
+Route::get('journal/{journal_id}/create-diary', function ($journal_id) {
+    return view('diary.create', ['journal_id' => $journal_id]);
+});
 Route::view('create-journal', 'journal.create');
 Route::get('public-journals', [JournalController::class, 'index']);
 Route::get('my-journals', [JournalController::class, 'showMyJournals']);
