@@ -4,7 +4,7 @@
 <link href="{{ URL::asset('css/journals.css') }}" rel="stylesheet">
 
 @section('content')
-    @if (empty($journal))
+    @if (empty($journals))
         <div class="no-journal">
             <h1>
                 Ops! It appears that you have not written any personal journal yet
